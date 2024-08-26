@@ -1,9 +1,18 @@
 import { FaPhone } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsSlice";
+
 import css from "../ContactList/ContactList.module.css";
 
-const Contact = ({ contact, onDeleteContact }) => {
+const Contact = ({ contact }) => {
+  const dispatch = useDispatch();
+
+  const onDeleteContact = (id) => {
+    dispatch(deleteContact(id));
+  };
+
   return (
     <>
       <div>
